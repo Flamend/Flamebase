@@ -1,4 +1,7 @@
 # Flamebase
+![npm](https://img.shields.io/npm/v/flamebase?label=Version&style=for-the-badge)
+![discord](https://img.shields.io/discord/910211115043135510?label=support&style=for-the-badge)
+
 ### Flamebase is a simple NPM package that can edit JSON files easily
 
 # Installation:
@@ -76,5 +79,5 @@ Flamebase.removeFromPropertyArray({
 })
 ```
 
-# For support:
+# For support or new idea:
 ### Discord: Flamend#2247 
