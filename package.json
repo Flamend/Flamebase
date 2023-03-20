@@ -1,0 +1,20 @@
+{
+  "name": "flamebase",
+  "version": "1.0.0",
+  "description": "Use JSON files as a simple database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flamend/Flamebase.git"
+  },
+  "keywords": [
+    "Database",
+    "JSON",
+    "Editor"
+  ],
+  "author": "Flamend",
+  "license": "ISC"
+}
