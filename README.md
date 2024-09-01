@@ -1,94 +1,138 @@
 # Flamebase
 
-[![npm](https://img.shields.io/npm/v/flamebase?label=Version&style=for-the-badge)](https://www.npmjs.com/package/flamebase)
-[![discord](https://img.shields.io/discord/910211115043135510?label=Support&style=for-the-badge)](https://discord.gg/GKdCUT6Twe)
+[![npm](https://img.shields.io/npm/v/flamebase?label=Version&style=for-the-badge)](https://www.npmjs.com/package/flamebase)  
 
-Flamebase is a simple NPM package that can edit JSON files easily.
+Flamebase is a simple NPM package designed to easily edit JSON files, functioning as a lightweight and straightforward JSON-based database.
 
 ## Installation
 
-To install Flamebase, simply run the following command in your terminal:
+Install Flamebase using the following command:
 
-```sh
+```bash
 npm i flamebase
 ```
 
-# Documentation:
+## Documentation
 
-### Write to JSON file:
+### Import the Package
 
-```js
+```javascript
 const Flamebase = require("flamebase");
+```
 
+### Database Management
+
+#### Register a Database
+
+```javascript
+Flamebase.registerDatabase("database-name-here", "/path/to/jsonfile.json");
+```
+
+#### Remove a Database
+
+```javascript
+Flamebase.removeDatabase("database-name-here");
+```
+
+#### Get All Registered Databases
+
+```javascript
+const databases = Flamebase.getDatabases(); // Returns the Databases object
+console.log(databases);
+```
+
+#### Get Database Stats
+
+```javascript
+const stats = Flamebase.getDatabaseStats("database-name-here"); // Returns info like entries, size, createdAt, and modifiedAt
+console.log(stats);
+```
+
+#### Clear a Database
+
+```javascript
+Flamebase.clearDatabase("database-name-here");
+```
+
+### Database Operations
+
+#### Write to a Database
+
+```javascript
 Flamebase.write({
-    Property: "new-property",
-    Data: "You can put anything here even objects or arrays",
-    AutoAlign: true, // Auto arange the file after writing it
-    JsonFilePath: "./json-file.json"
+  Property: "prop1.prop2.prop3",
+  Data: "You can put anything here, including objects or arrays",
+  AutoAlign: true, // Automatically arrange the file after writing
+  Database: "database-name-here",
 });
-
 ```
 
-### Remove from JSON file:
+#### Remove from a Database
 
-```js
-const Flamebase = require("flamebase");
-
+```javascript
 Flamebase.remove({
-    Property: "new-property", // The property that you want to delete
-    AutoAlign: true, // Auto arange the file after writing it
-    JsonFilePath: "./json-file.json"
+  Property: "prop1.prop2.prop3",
+  AutoAlign: true, // Automatically arrange the file after writing
+  Database: "database-name-here",
 });
-
 ```
 
-### Update the JSON file:
+#### Update a Database
 
-```js
-const Flamebase = require("flamebase");
-
+```javascript
 Flamebase.update({
-    Property: "new-property",
-    Data: ["NEW", "DATA", "HERE"],
-    AutoAlign: true, // Auto arange the file after writing it
-    JsonFilePath: "./json-file.json"
+  Property: "prop1.prop2.prop3",
+  Data: "New data or value of the property",
+  AutoAlign: true, // Automatically arrange the file after writing
+  Database: "database-name-here",
 });
-
 ```
 
-### Get property value inside the JSON file
+### Retrieving Data
 
-```js
-console.log(Flamebase.get({
-    Property: "new-property",
-    JsonFilePath: "./json-file.json"
-}))
+#### Get Property Value or Entire Database
+
+```javascript
+// Get a specific property value
+const getValue = Flamebase.get({
+  Property: "prop1.prop2.prop3",
+  Database: "database-name-here",
+});
+console.log(getValue);
+
+// Get the whole database
+const getDatabase = Flamebase.get({
+  Database: "database-name-here",
+});
+console.log(getDatabase);
 ```
 
-### Add data to array inside a property:
+### Array Operations
 
-```js
-Flamebase.pushToPropertyArray({
-    Property: "new-property",
-    ArrayName: "Array0",
-    Data: "New Array Data", // Data that you want to add to the array
-    AutoAlign: true, // Auto arange the file after writing it
-    JsonFilePath: "./json-file.json"
-})
+#### Push to an Array
+
+```javascript
+Flamebase.pushToArray({
+  Property: "prop1.prop2.prop3",
+  Value: "New value", // Value to add to the array
+  AutoAlign: true, // Automatically arrange the file after writing
+  Database: "database-name-here",
+});
 ```
 
-### Remove data from array inside a property:
+#### Remove from an Array
 
-```js
-Flamebase.removeFromPropertyArray({
-    Property: "new-property",
-    ArrayName: "Array0",
-    Data: "New Array Data", // Data that you want to remove from the array
-    AutoAlign: true, // Auto arange the file after writing it
-    JsonFilePath: "./json-file.json"
-})
+```javascript
+Flamebase.removeFromArray({
+  Property: "prop1.prop2.prop3",
+  Value: "New value", // Value to remove from the array
+  AutoAlign: true, // Automatically arrange the file after writing
+  Database: "database-name-here",
+});
 ```
 
-# For support or new idea:
+## Support or Suggestions
 
-### Discord: Flamend#2247 
+For support or to share new ideas, connect via Discord:
+
+**Discord:** [@flamend](https://discord.gg/GKdCUT6Twe)
